@@ -13,16 +13,16 @@ public class LinkedListDeque <T> {
     }
     public LinkedListDeque() {
         /* Circular Sentinel */
-        sentinel = new Node<>((T) "hollen", null, null);
+        sentinel = new Node<>(null, null, null);
         sentinel.left = sentinel;
         sentinel.right = sentinel;
         size = 0;
     }
 
-    public static LinkedListDeque<String> LinkedListDeque(LinkedListDeque<String> other) {
-        Node<String> pointer = other.sentinel.right;
+    public LinkedListDeque<T> LinkedListDeque(LinkedListDeque<T> other) {
+        Node<T> pointer = other.sentinel.right;
         int SIZE = other.size();
-        LinkedListDeque<String> newLLD = new LinkedListDeque<>();
+        LinkedListDeque<T> newLLD = new LinkedListDeque<>();
         while (SIZE > 0) {
             SIZE -= 1;
             newLLD.addLast(pointer.item);
@@ -116,7 +116,7 @@ public class LinkedListDeque <T> {
         System.out.println(a.get(4));
         System.out.println(a.getRecursive(0));
         System.out.println(a.getRecursive(3));
-        LinkedListDeque<String> b = LinkedListDeque(a);
+        LinkedListDeque<String> b = a.LinkedListDeque(a);
         a.printDeque();
         b.printDeque();
         System.out.println(a.isEmpty());
