@@ -9,11 +9,14 @@ public class ArrayDeque <T> {
     }
 
     public ArrayDeque(ArrayDeque other) {
-        int SIZE = this.size;
+        items = (T []) new Object[5];
+        size = 0;
+        capacity = 5;
+        int SIZE = other.size;
         int POINTER = 0;
         while (SIZE > 0) {
             SIZE -= 1;
-            addLast((T) this.items[POINTER]);
+            addLast((T) other.items[POINTER]);
             POINTER += 1;
         }
     }
@@ -59,7 +62,7 @@ public class ArrayDeque <T> {
         for (int i = 1; i < size-1; i += 1) {
             System.out.print("\"" + items[i] + "\", ");
         }
-        System.out.print("\"" + items[size-1] + "\"]");
+        System.out.print("\"" + items[size-1] + "\"]\n");
     }
 
     public T removeFirst() {
@@ -92,7 +95,8 @@ public class ArrayDeque <T> {
         AD.addLast("Seventh");
         System.out.println(AD.removeLast());
         ArrayDeque<String> CS = new ArrayDeque<>(AD);
-        System.out.println(CS.get(2));
+        CS.printDeque();
         AD.printDeque();
+        System.out.println(CS.get(2));
     }
 }
