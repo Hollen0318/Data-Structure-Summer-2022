@@ -20,11 +20,15 @@ public class LinkedListDeque <T> {
     }
 
     public LinkedListDeque(LinkedListDeque other) {
+        sentinel = new Node<>(null, null, null);
+        sentinel.left = sentinel;
+        sentinel.right = sentinel;
+        size = 0;
         int POINTER = 0;
         int SIZE = other.size();
         while (SIZE > 0) {
             SIZE -= 1;
-            addLast((T) get(POINTER));
+            addLast((T) other.get(POINTER));
             POINTER += 1;
         }
 //        newLLD.sentinel.left.item = "HHHHH";
