@@ -8,16 +8,14 @@ public class ArrayDeque <T> {
         capacity = 5;
     }
 
-    public ArrayDeque<T> ArrayDeque(ArrayDeque<T> other) {
-        ArrayDeque<T> newAD = new ArrayDeque<>();
+    public ArrayDeque(ArrayDeque other) {
         int SIZE = this.size;
         int POINTER = 0;
         while (SIZE > 0) {
             SIZE -= 1;
-            newAD.addLast(this.items[POINTER]);
+            addLast((T) this.items[POINTER]);
             POINTER += 1;
         }
-        return newAD;
     }
 
     private void resize() {
@@ -93,8 +91,8 @@ public class ArrayDeque <T> {
         AD.addLast("Sixth");
         AD.addLast("Seventh");
         System.out.println(AD.removeLast());
-        ArrayDeque<String> NewAD = AD.ArrayDeque(AD);
-        System.out.println(AD.get(2));
+        ArrayDeque<String> CS = new ArrayDeque<>(AD);
+        System.out.println(CS.get(2));
         AD.printDeque();
     }
 }

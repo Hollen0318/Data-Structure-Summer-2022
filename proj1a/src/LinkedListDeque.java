@@ -1,5 +1,5 @@
 public class LinkedListDeque <T> {
-    private final Node<T> sentinel;
+    private Node<T> sentinel;
     private int size;
     public static class Node<Type> {
         public Type item;
@@ -19,17 +19,15 @@ public class LinkedListDeque <T> {
         size = 0;
     }
 
-    public LinkedListDeque<T> LinkedListDeque(LinkedListDeque<T> other) {
-        Node<T> pointer = other.sentinel.right;
+    public LinkedListDeque(LinkedListDeque other) {
+        int POINTER = 0;
         int SIZE = other.size();
-        LinkedListDeque<T> newLLD = new LinkedListDeque<>();
         while (SIZE > 0) {
             SIZE -= 1;
-            newLLD.addLast(pointer.item);
-            pointer = pointer.right;
+            addLast((T) get(POINTER));
+            POINTER += 1;
         }
 //        newLLD.sentinel.left.item = "HHHHH";
-        return newLLD;
     }
     public void addFirst(T item) {
         sentinel.right = new Node<>(item, sentinel, sentinel.right);
@@ -116,7 +114,7 @@ public class LinkedListDeque <T> {
         System.out.println(a.get(4));
         System.out.println(a.getRecursive(0));
         System.out.println(a.getRecursive(3));
-        LinkedListDeque<String> b = a.LinkedListDeque(a);
+        LinkedListDeque<String> b = new LinkedListDeque<>(a);
         a.printDeque();
         b.printDeque();
         System.out.println(a.isEmpty());
