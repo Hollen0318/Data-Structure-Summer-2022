@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 public class ArithmeticTest {
 
     /** Performs a few arbitrary tests to see if the product method is correct */
