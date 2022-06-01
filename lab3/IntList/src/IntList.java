@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import java.util.Formatter;
 /**
  * @author P. N. Hilfinger, with some modifications by Josh Hug and melaniecebula
@@ -157,6 +159,15 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+//    /**
+//     * Returns the reverse of the given IntList.
+//     * This method is destructive. If given null
+//     * as an input, returns null.
+//     */
+//    public static IntList reverse(IntList A) {
+//        int MIDDLE = 0;
+//        return A;
+//    }
 
     public static void main(String[] args) {
         IntList a = new IntList(2,null);
