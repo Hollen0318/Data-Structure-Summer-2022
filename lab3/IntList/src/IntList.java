@@ -165,17 +165,23 @@ public class IntList {
      * as an input, returns null.
      */
     public static IntList reverse(IntList A) {
-//        int MIDDLE = 0;
-        return null;
+        IntList temp;
+        IntList tail;
+        if (A == null || A.rest == null) {
+            return null;
+        }else {
+            tail = A.rest;
+            A.rest = null;
+
+            while (tail != null) {
+                temp = new IntList(tail.first, A);
+                A = temp;
+                tail = tail.rest;
+            }
+        }
+        return A;
     }
 
     public static void main(String[] args) {
-        IntList a = new IntList(2,null);
-        a.rest = new IntList(4,null);
-        a.rest = new IntList(6,null);
-        IntList c = new IntList(87,null);
-        c.rest = new IntList(23,null);
-        IntList d = catenate(a,c);
     }
 }
-
